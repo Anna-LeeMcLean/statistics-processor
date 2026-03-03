@@ -23,6 +23,8 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -37,13 +39,109 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  print_statistics(test, SIZE);
   print_array(test, SIZE);
+  print_statistics(test, SIZE);
 
 }
 
-unsigned char find_median(unsigned char* arr, unsigned int size){}
-unsigned char find_mean(unsigned char* arr, unsigned int size){}
-unsigned char find_maximum(unsigned char* arr, unsigned int size){}
-unsigned char find_minimum(unsigned char* arr, unsigned int size){}
-void sort_array(unsigned char* arr, unsigned int size){}
+unsigned char find_median(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL) return 0;  // guard against null pointer
+
+  sort_array(arr, size);
+
+  unsigned char median;
+  if ((size/2) % 2 == 0) 
+    median = (arr[size/2] + arr[(size/2)-1]) / 2;
+  else
+    median = arr[size/2];
+
+  return median;
+}
+
+unsigned char find_mean(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL) return 0;  // guard against null pointer
+
+  unsigned int total = 0;
+
+  for (int i=0; i<size; ++i){
+    total += arr[i];
+  }
+
+  return total/size;
+}
+
+unsigned char find_maximum(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL) return 0;  // guard against null pointer
+
+  unsigned char max = 0;  // initialize the maximum to be the smallest possible value for an unsigned char
+
+  for (int i=0; i<size; ++i){
+    if (arr[i] > max) max = arr[i];
+  }
+
+  return max;
+}
+
+unsigned char find_minimum(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL) return 0;  // guard against null pointer
+
+  unsigned char min = UCHAR_MAX;  // initialize the minimum to be the largest possible value for an unsigned char
+
+  for (int i=0; i<size; ++i){
+    if (arr[i] < min) min = arr[i];
+  }
+
+  return min;
+}
+
+int comp(const void* a, const void* b){
+
+  int arg1 = *(const unsigned char*)a;
+  int arg2 = *(const unsigned char*)b;
+
+  if (arg1 > arg2) return -1;
+  if (arg1 < arg2) return 1;
+  return 0;
+}
+
+void sort_array(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL){
+    printf("array is NULL");  // guard against null pointer
+    return;
+  }
+
+  qsort(arr, size, sizeof(arr[0]), comp);
+}
+
+void print_statistics(unsigned char* arr, unsigned int size){
+  
+  if (arr == NULL){
+    printf("array is NULL");  // guard against null pointer
+    return;
+  }
+
+  printf("median: %d\n", find_median(arr, size));
+  printf("mean: %d\n", find_mean(arr, size));
+  printf("maximum: %d\n", find_maximum(arr, size));
+  printf("minimum: %d\n", find_minimum(arr, size));
+}
+
+void print_array(unsigned char* arr, unsigned int size){
+
+  if (arr == NULL){
+    printf("array is NULL");  // guard against null pointer
+    return;
+  }
+  
+  printf("data:\n");
+
+  for (int i=0; i<size; ++i)
+    printf("%d, ", arr[i]);
+  
+  printf("\n");
+}
