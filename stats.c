@@ -9,13 +9,14 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Implementation of data analysis library
  *
- * <Add Extended Description Here>
+ * Implements functions which print and sort data, in addition to finding
+ * their median, mean, maximum and minimum values.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Anna-Lee McLean
+ * @date March 2, 2026
  *
  */
 
@@ -36,8 +37,13 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+  print_statistics(test, SIZE);
+  print_array(test, SIZE);
 
 }
 
-/* Add other Implementation File Code Here */
+unsigned char find_median(unsigned char* arr, unsigned int size){}
+unsigned char find_mean(unsigned char* arr, unsigned int size){}
+unsigned char find_maximum(unsigned char* arr, unsigned int size){}
+unsigned char find_minimum(unsigned char* arr, unsigned int size){}
+void sort_array(unsigned char* arr, unsigned int size){}

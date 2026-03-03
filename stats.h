@@ -9,32 +9,104 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h
+ * @brief Header file for stats.c 
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * Contains function declarations and descriptions for functions used
+ * to analyze data in an array. Analysis includes finding the median,
+ * mean, maximum and minimum of array data. 
+ * 
+ * @author Anna-Lee McLean
+ * @date March 2, 2026
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
 
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief Print all statistics of input array
  *
- * <Add Extended Description Here>
+ * Prints minimum, maximum, mean and median of an array using stdlib printf.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param arr Input array
+ * @param size Number of elements in input array
  *
- * @return <Add Return Informaiton here>
+ * @return void
  */
+void print_statistics(unsigned char* arr, unsigned int size);
+
+/**
+ * @brief Print array elements
+ *
+ * Prints all elements in input array to the standard output.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return void
+ */
+void print_array(unsigned char*, unsigned int size);
+
+/**
+ * @brief Find the median value of array elements
+ *
+ * Calculates and returns the median of all elements in an input array.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return The median of elements in the array
+ */
+unsigned char find_median(unsigned char* arr, unsigned int size);
+
+/**
+ * @brief Find the mean of array elements
+ *
+ * Calculates and returns the mean of all elements in an input array.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return The mean of elements in the array
+ */
+unsigned char find_mean(unsigned char* arr, unsigned int size);
+
+/**
+ * @brief Find the maximum element in array
+ *
+ * Determines and returns the maximum element in an input array.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return The maximum element in the array
+ */
+unsigned char find_maximum(unsigned char* arr, unsigned int size);
+
+/**
+ * @brief Find the minimum element in array
+ *
+ * Determines and returns the minimum element in an input array.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return The minimum element in the array
+ */
+unsigned char find_minimum(unsigned char* arr, unsigned int size);
+
+/**
+ * @brief Sort elements in an array in descending order
+ *
+ * Sorts elements in an input array from largest to smallest.
+ *
+ * @param arr Input array
+ * @param size Number of elements in input array
+ *
+ * @return void
+ */
+void sort_array(unsigned char* arr, unsigned int size);
 
 
 #endif /* __STATS_H__ */
