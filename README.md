@@ -1,2 +1,5 @@
-# statistics-processor
-Process and print data in an array. Written in C; Compiled with GCC.
+# Data Analysis Library
+
+Author: Anna-Lee McLean
+Includes functions to find the median, mean, maximum and minimum values of an array.
+Printing utilities also included.

@@ -27,7 +27,7 @@
 /**
  * @brief Print all statistics of input array
  *
- * Prints minimum, maximum, mean and median of an array using stdlib printf.
+ * Prints minimum, maximum, mean and median of an input array to the standard output.
  *
  * @param arr Input array
  * @param size Number of elements in input array
@@ -100,6 +100,7 @@ unsigned char find_minimum(unsigned char* arr, unsigned int size);
  * @brief Sort elements in an array in descending order
  *
  * Sorts elements in an input array from largest to smallest.
+ * Wrapper around stdlib qsort.
  *
  * @param arr Input array
  * @param size Number of elements in input array
